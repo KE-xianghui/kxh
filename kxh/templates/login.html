@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Weshare·登录</title>
+        <style>
+        body {
+          background-image:url("../static/background.jpg");
+        }
+        .white{
+            color: white;
+        }
+        </style>
+</head>
+<body>
+<div align="center">
+
+<br><br><h1><p style="font-family:华文楷体" class="white">欢迎使用Course Weshare·大学生课程资源管理平台！</p></h1><br>
+ {% for RegisterErro in get_flashed_messages() %}
+ {{ RegisterErro }}
+ {% endfor %}
+
+<h2><form action="dologin" method="post">
+        <p style="font-family: 华文楷体" class="white">用户名 : <input type=text name="uname"><br></p><br>
+        <p style="font-family: 华文楷体" class="white">密  码 : <input type="password" name="upwd"><br></p><br>
+        <input type="submit" value="登录">
+</form></h2>
+
+</div>
+
+</body>
+</html>

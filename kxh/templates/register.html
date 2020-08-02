@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Weshare·注册</title>
+     <style>
+        body {
+          background-image:url("../static/background.jpg");
+        }
+        .white{
+            color: white;
+        }
+    </style>
+</head>
+  <script src="../static/jquery.min.js"></script>
+  <script src="../static/registerjs.js"></script>
+<body style="background-color:LightBlue ;">
+ <div align="center">
+
+ <br><br><h1><p style="font-family: 华文楷体" class="white">欢迎使用Course Weshare·大学生课程资源管理平台！</p></h1><br>
+
+ <h3><form action="doregister" method="post" onsubmit="return checkAll()">
+    <p style="font-family: 华文楷体" class="white">用 户 名 : <input type="text" placeholder=" 请输入用户名" autocomplete="off" name="uname" id="uid" onblur="checkName()"/></p><span id="usid"></span><span id="usid"></span><br>
+    <p style="font-family: 华文楷体" class="white">设置密码 : <input type="password" placeholder=" 请输入密码" autocomplete="off" name="upwd" id="pid" onblur="checkPwd()"/></p><span id="sid"></span><br>
+    <p style="font-family: 华文楷体" class="white">确认密码 : <input type="password" placeholder=" 请确认密码" autocomplete="off" name="rupwd" id="rpid" onblur="checkRPwd()"/></p><span id="rsid"></span><br><br>
+     <input type="submit" value="注册">
+ </form></h3>
+ </div>
+</body>
+</html>

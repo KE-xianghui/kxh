@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Course Weshare·大学生课程资源管理平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/indexSearchjs.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/table.css">
+    <style>
+        body {
+            background-image: url("../static/background.jpg");
+        }
+
+        table, td, th
+        td {
+            text-align: center;
+            color: black;
+        }
+
+        th {
+            text-align: center;
+            color: #123596;
+        }
+
+        .DarkBlue {
+            text-decoration: none;
+            color: DarkBlue;
+        }
+
+        .blue {
+            text-decoration: none;
+            color: #123596;
+        }
+
+        .dropbtn {
+            background-color: DarkBlue;
+            color: white;
+        {#蓝色块上的字体颜色#} margin-left: 40px;
+            margin-top: 0px;
+            padding-left: 99px;
+            padding-right: 99px;
+            padding-top: 0px;
+            padding-bottom: 8px;
+            font-size: 9px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0px;
+            background-color: white;
+        {#下拉菜单中各个块的颜色#} min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        {#<!--下拉菜单中当时放置在上面时显示的颜色-->#}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: LightBlue;
+        {#鼠标放置在蓝色块上时显示的颜色#}
+        }
+
+    </style>
+
+</head>
+<body>
+
+<img src="../static/logo.png" width="450" height="135">
+
+<div align="center">
+    <form id="searchform" action="dosearchPage" target="_self">
+        <h>
+            <p style="font-family: 华文楷体">
+                <input name="coursename" type="text" id="className" placeholder="课程查询 / Search for Courses" size="30"/>
+                <button type="submit" value="true" id="btn" onclick="buttonCallback()"><img alt="搜索"
+                                                                                            src="../static/搜索.png"
+                                                                                            width="13" height="13"/>
+                </button>
+                <a href="searchPage.html">浏览记录</a></p>
+        </h>
+    </form>
+</div>
+
+<br>
+<center>
+    <div id="table_temp">
+
+    </div>
+</center>
+{#<div id="app">#}
+{#    <template>#}
+{#        <el-table#}
+{#                :data="tableData"#}
+{#                style="width: 100%">#}
+{#            <el-table-column#}
+{#                    prop="id"#}
+{#                    label="ID"#}
+{#                    width="180">#}
+{#            </el-table-column>#}
+{#            <el-table-column#}
+{#                    prop="school"#}
+{#                    label="学校"#}
+{#                    width="180">#}
+{#            </el-table-column>#}
+{#            <el-table-column#}
+{#                    prop="college"#}
+{#                    label="学校">#}
+{#            </el-table-column>#}
+{#            <el-table-column#}
+{#                    prop="coursename"#}
+{#                    label="课程名称"#}
+{#                    width="180">#}
+{#            </el-table-column>#}
+{#            <el-table-column#}
+{#                    prop="teacher"#}
+{#                    label="教师"#}
+{#                    width="180">#}
+{#            </el-table-column>#}
+{#            <el-table-column#}
+{#                    prop="website"#}
+{#                    label="网址"#}
+{#                    width="180">#}
+{#            </el-table-column>#}
+{#        </el-table>#}
+{#    </template>#}
+{#</div>#}
+
+<br>
+
+<div align="center">
+    <div class="dropdown">
+        <button class="dropbtn">
+            <h3><strong><p style="font-family: 微软雅黑" align="center">学校</p></strong></h3>
+        </button>
+        <div class="dropdown-content">
+            <a href="BFU.html">北京林业大学</a>
+            <a href="BUPT.html">北京邮电大学</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">
+            <h3><strong><p style="font-family: 微软雅黑" align="center">科目</p></strong></h3>
+        </button>
+        <div class="dropdown-content">
+            <a href="">理学</a>
+            <a href="">计算机</a>
+            <a href="">工学</a>
+            <a href="">农林园艺</a>
+            <a href="">心理学</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">
+            <h3><strong><p style="font-family: 微软雅黑" align="center">教师</p></strong></h3>
+        </button>
+        <div class="dropdown-content">
+            <a href="">A</a>
+            <a href="">B</a>
+            <a href="">C</a>
+            <a href="">D</a>
+            <a href="">E</a>
+            <a href="">F</a>
+            <a href="">G</a>
+            <a href="">H</a>
+            <a href="">J</a>
+            <a href="">K</a>
+            <a href="">L</a>
+            <a href="">M</a>
+            <a href="">N</a>
+            <a href="">O</a>
+            <a href="">P</a>
+            <a href="">Q</a>
+            <a href="">R</a>
+            <a href="">S</a>
+            <a href="">T</a>
+            <a href="">W</a>
+            <a href="">X</a>
+            <a href="">Y</a>
+            <a href="">Z</a>
+        </div>
+    </div>
+</div>
+<br><br>
+
+<img src="../static/firstpage.png" width=100% height="200">
+<br>
+<br>
+<br>
+
+<div class="block topblock" align="center">
+    <h2>
+        <strong>计算机</strong></h2>
+    <br>
+
+</div>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>课程名称</th>
+            <th>学校</th>
+            <th>教师</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a href="jpCourse_sxfx.html" class="DarkBlue"> 数学分析</a></td>
+            <td>华东师范大学</td>
+            <td>刘丽萍等</td>
+        </tr>
+        <tr>
+            <td><a href="/jpCourse_Java.html" class="DarkBlue"> Java</a></td>
+            <td>南京大学</td>
+            <td>刘钦</td>
+        </tr>
+        <tr>
+            <td><a href="jpCourse_sjjg.html" class="DarkBlue"> 数据结构</a></td>
+            <td>浙江大学</td>
+            <td>陈越</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+
+<div class="block topblock" align="center">
+    <h2>
+        <strong>理学</strong></h2>
+    <br>
+</div>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>课程名称</th>
+            <th>学校</th>
+            <th>教师</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a href="" class="DarkBlue"> 数学分析</a></td>
+            <td>北京林业大学</td>
+            <td>梁斌</td>
+        </tr>
+        <tr>
+            <td><a href="" class="DarkBlue"> 数学分析</a></td>
+            <td>北京林业大学</td>
+            <td>赵俊光</td>
+        </tr>
+        <tr>
+            <td><a href="" class="DarkBlue"> 数学分析</a></td>
+            <td>北京大学</td>
+            <td>王晶</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+
+<div class="block topblock" align="center">
+    <h2>
+        <strong>农林园艺</strong></h2>
+    <br>
+</div>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>课程名称</th>
+            <th>学校</th>
+            <th>教师</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a href="" class="DarkBlue"> 数学分析</a></td>
+            <td>北京林业大学</td>
+            <td>梁斌</td>
+        </tr>
+        <tr>
+            <td><a href="" class="DarkBlue"> 数学分析</a></td>
+            <td>北京林业大学</td>
+            <td>赵俊光</td>
+        </tr>
+        <tr>
+            <td><a href="" class="DarkBlue"> 数学分析</a></td>
+            <td>北京大学</td>
+            <td>王晶</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+
+<div align="center" class="black">
+    <h5><p><a href="aboutus.html" class="DarkBlue">关于我们</a> | @2020 Course Weshare.</p></h5>
+    <h5>意见反馈请发至邮箱：kexianghui2020@126.com</h5>
+</div>
+
+{#<!-- import Vue before Element -->#}
+{#<script src="https://unpkg.com/vue/dist/vue.js"></script>#}
+{#<!-- 引入样式 -->#}
+{#<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">#}
+{#<!-- 引入组件库 -->#}
+{#<script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>#}
+{#<script>#}
+{#    var Main = {#}
+{#        data() {#}
+{#            return {#}
+{#                tableData: []#}
+{#            }#}
+{#        }#}
+{#    };#}
+{#    var Ctor = Vue.extend(Main);#}
+{#    new Ctor().$mount('#app');#}
+{#</script>#}
+
+</body>
+</html>

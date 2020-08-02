@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Weshare·大学生课程资源管理平台</title>
+
+    <style>
+        body {
+          background-image:url("../static/background.jpg");
+        }
+
+        div.transbox {
+            margin: auto;
+            width:33%;
+            border: 3px solid RoyalBlue ;
+            padding: 43px;
+            background:LightSteelBlue;
+            border-radius:25px;
+            box-shadow: 5px 5px 5px #888888;
+            margin: 0;
+            position: absolute;
+            top: 65%;
+            left: 52%;
+            transform: translate(-50%, -50%);
+            opacity:0.7;
+            filter:alpha(opacity=70);
+        }
+
+        div.transbox p {
+            margin: 10px 14px 15px 6px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        div.img {
+            margin: 0px;
+            border: 0px;
+            float:left;
+            position: absolute;
+            top: 8%;
+            left: 29%;
+            width: 550px;
+        }
+        div.img img {
+            width: 100%;
+            height: auto;
+        }
+
+        #myDIV {
+            border: 0px;
+            width: 400px;
+            color: #9900FF;
+            -webkit-animation: mymove 2s infinite;
+            animation: mymove 2s infinite;
+            text-align: center;
+            margin: 10px 12px 15px 8px;
+            font-family: 华文楷体;
+        }
+        @-webkit-keyframes mymove {
+            50% {color: #33CCFF;}
+        }
+        @keyframes mymove {
+            50% {color: #330099}
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="responsive">
+
+    <div class="img">
+      <img src="../static/logo.png" alt="课享汇·大学公共课程资源管理平台" width="800" height="200">
+    </div>
+
+<div class="transbox">
+
+
+        <div class="center">
+
+            <div id="myDIV">
+                <h1>大学公共课程资源管理平台</h1><br><br>
+            </div>
+            <h2><p style="font-family: 华文楷体" align="center">已注册用户请 <a href="login.html">登录</a></p></h2>
+            <h2><p style="font-family: 华文楷体" align="center">未注册用户请 <a href="register.html">注册</a></p></h2>
+        </div>
+
+</div>
+</div>
+</body>
+
+</html>
